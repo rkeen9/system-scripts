@@ -23,5 +23,5 @@ read network_num
 essid=$(echo ${networks[${network_num}]} | grep -o '".*"' | tr -d '"')
 echo "${green}Enter the wifi password${reset}"
 read password
-wpa_passphrase $essid $password | tee -a /etc/wpa_supplicant.conf
+wpa_passphrase $essid $password | sudo tee -a /etc/wpa_supplicant.conf
 sudo systemctl restart wpa_supplicant

@@ -17,10 +17,12 @@ wifiStatus() {\
 
 status() { \
     # echo -e "${green}◀${reset}"
-	echo " Volume:"
+	echo " Bluetooth Volume:"
     pactl list sinks | grep '^[[:space:]]Volume:' |     head -n $(( $SINK + 2 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,'
     echo "%"
-	# awk -F"[][]" '/dB/ { print $2 }' <(amixer sget Master) 
+    echo "$delim"
+    echo " Speaker Volume:"
+	awk -F"[][]" '/dB/ { print $2 }' <(amixer sget Master) 
 	echo "$delim"
 	acpi
 	echo "$delim"
