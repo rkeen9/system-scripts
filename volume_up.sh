@@ -2,7 +2,7 @@
 # Called by DWM when the volume up key is pressed
 # only adjusts volume for bluetooth
 checkBluetooth() {
-    str=$(hcitool con | grep '>.*')
+    str=$(hcitool con | grep '[<>].*')
     if [ ! -z "$str" -a "$str" != "" ] ; then
         return 1
     else
