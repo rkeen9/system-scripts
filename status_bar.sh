@@ -15,15 +15,32 @@ wifiStatus() {\
     fi
 }
 
+checkBluetooth() {
+    str=$(hcitool con | grep '[<>].*')
+    if [ ! -z "$str" -a "$str" != "" ] ; then
+        return 1
+    else
+        return 0
+    fi
+}
+
+volume() {
+    checkBluetooth
+    bluetooth=$?
+    if [ $bluetooth -eq 1 ] ; then
+        echo " Bluetooth Volume:"
+        pactl list sinks | grep '^[[:space:]]Volume:' |     head -n $(( $SINK + 2 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,'
+        echo "%"
+    else
+        echo " Speaker Volume:"
+        awk -F"[][]" '/dB/ { print $2 }' <(amixer sget Master) 
+    fi 
+    echo "$delim"
+}
+
 status() { \
     # echo -e "${green}◀${reset}"
-	echo " Bluetooth Volume:"
-    pactl list sinks | grep '^[[:space:]]Volume:' |     head -n $(( $SINK + 2 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,'
-    echo "%"
-    echo "$delim"
-    echo " Speaker Volume:"
-	awk -F"[][]" '/dB/ { print $2 }' <(amixer sget Master) 
-	echo "$delim"
+echo $(volume)
 	acpi
 	echo "$delim"
     # echo "$(wifiStatus)"
