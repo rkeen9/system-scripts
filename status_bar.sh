@@ -20,7 +20,7 @@ blueText() {
 }
 
 wifiStatus() {
-    str=$(ping -c 1 8.8.8.8 | grep "100% packet loss" )
+    str=$(ping -c 1 8.8.8.8 | grep "100% packet loss" ) # Checks if internet is connected
     if [ ! -z "$str" -a "$str" != "" ] ; then
         redText '🌐 ' 
     else
@@ -30,7 +30,7 @@ wifiStatus() {
 }
 
 volume() {
-    str=$(hcitool con | grep '[<>].*') # checks if bluetooth is connected
+    str=$(hcitool con | grep '[<>].*') # Checks if bluetooth is connected
     if [ ! -z "$str" -a "$str" != "" ] ; then
         blueText " ᛒ🔊 "
         pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( $SINK + 2 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,'
@@ -38,13 +38,12 @@ volume() {
     else
         echo "🔊 "
         amixer sget Master | awk -F"[][]" '/dB/ { print $2 }' 
-        # < (amixer sget Master) 
     fi 
     echo "$delim"
 }
 
 battery() {
-    str=$(acpi | grep -o "Charging")
+    str=$(acpi | grep -o "Charging") # Checks if power is connected
     if [ ! -z "$str" -a "$str" != "" ] ; then
         echo "🔌🗲 "
     else
@@ -63,11 +62,11 @@ brightness() {
 
 status() { 
     echo "$delim"
-    echo -ne $(wifiStatus)
+    echo $(wifiStatus)
     echo $(volume)
     echo $(brightness)
     echo $(battery)    
-    date +%c | grep ".* [AP]M" -o 
+    date +%c | grep ".* [AP]M"
 }
 
 while true ; do
