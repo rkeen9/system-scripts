@@ -25,28 +25,35 @@ checkBluetooth() {
 }
 
 volume() {
+    echo "$delim"
     checkBluetooth
     bluetooth=$?
     if [ $bluetooth -eq 1 ] ; then
-        echo " Bluetooth Volume:"
+        # echo " Bluetooth Volume:"
+        echo " ᛒ🔊 "
         pactl list sinks | grep '^[[:space:]]Volume:' |     head -n $(( $SINK + 2 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,'
         echo "%"
     else
-        echo " Speaker Volume:"
+        # echo " Speaker Volume:"
+        echo " 🔊 "
         awk -F"[][]" '/dB/ { print $2 }' <(amixer sget Master) 
     fi 
     echo "$delim"
 }
 
+battery() {
+    echo "🗲 "
+    acpi | grep "[0-9].%" -o
+    echo "$delim"
+}
+
 status() { \
     # echo -e "${green}◀${reset}"
-echo $(volume)
-	acpi
-	echo "$delim"
+    echo $(volume)
+    echo $(battery)
     # echo "$(wifiStatus)"
     # echo "$delim"
-	date +%c
-
+    date +%c | grep ".* [AP]M" -o 
 }
 
 while true ; do
