@@ -43,11 +43,11 @@ volume() {
 }
 
 battery() {
-    str=$(acpi | grep -o "Charging") # Checks if power is connected
+    str=$(acpi | grep -o "Discharging") # Checks if power is connected
     if [ ! -z "$str" -a "$str" != "" ] ; then
-        echo "🔌🗲 "
-    else
         echo "🔋🗲 "
+    else
+        echo "🔌🗲 "
     fi 
     acpi | grep -Po "\d{1,3}%"
     echo "$delim"
