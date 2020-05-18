@@ -30,15 +30,20 @@ wifiStatus() {
 }
 
 volume() {
-    str=$(hcitool con | grep '[<>].*') # Checks if bluetooth is connected
-    if [ ! -z "$str" -a "$str" != "" ] ; then
-        blueText " ᛒ🔊 "
-        pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( $SINK + 2 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,'
-        echo "%"
-    else
-        echo "🔊 "
-        amixer sget Master | awk -F"[][]" '/dB/ { print $2 }' 
-    fi 
+    source /home/robert/scripts/VARIABLES
+    echo "🔊 "
+    /home/robert/scripts/get_volume.sh    
+#    pamixer --sink $SINK --get-volume
+#    pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( $SINK + 1 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,'
+#     str=$(hcitool con | grep '[<>].*') # Checks if bluetooth is connected
+#     if [ ! -z "$str" -a "$str" != "" ] ; then
+#         blueText " ᛒ🔊 "
+#         pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( $SINK + 2 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,'
+#         echo "%"
+#     else
+#         echo "🔊 "
+#         amixer sget PCM | awk -F"[][]" '/dB/ { print $2 }' 
+#     fi 
     echo "$delim"
 }
 
@@ -61,12 +66,13 @@ brightness() {
 }
 
 status() { 
-    echo "$delim"
-    echo $(wifiStatus)
+    sink=1
+    # echo "$delim"
+    # echo $(wifiStatus)
     echo $(volume)
-    echo $(brightness)
-    echo $(battery)    
-    date +%c | grep ".* [AP]M"
+    # echo $(brightness)
+    # echo $(battery)    
+    date +"%a, %b %d, %y %r"
 }
 
 while true ; do
