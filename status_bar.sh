@@ -20,7 +20,7 @@ blueText() {
 }
 
 wifiStatus() {
-    str=$(ping -c 1 8.8.8.8 | grep "100% packet loss" ) # Checks if internet is connected
+    str=$(ping -c 1 archlinux.org | grep "100% packet loss" ) # Checks if internet is connected
     if [ ! -z "$str" -a "$str" != "" ] ; then
         redText '🌐 ' 
     else
@@ -56,11 +56,11 @@ brightness() {
 
 status() { 
     sink=1
-    # echo "$delim"
+    echo "$delim"
     # echo $(wifiStatus)
     echo $(volume)
-    # echo $(brightness)
-    # echo $(battery)    
+    echo $(brightness)
+    echo $(battery)    
     date +"%a, %b %d, %y %r"
 }
 
