@@ -1119,7 +1119,7 @@ expand: 伸
 gods: 神
 search: 捜
 fruit: 果
-candy (originally confectionary): 菓
+confectionary: 菓
 chapter: 課
 naked: 裸
 axe: 斤
@@ -2103,7 +2103,7 @@ revile: 蔑
 kudzu: 葛
 modest: 遜
 chink: 隙
-unclear: 曖
+equivocal: 曖
 obscure: 昧
 effulgent: 旺
 kidney: 腎

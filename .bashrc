@@ -7,6 +7,7 @@
 
 export VISUAL=nvim;
 export EDITOR=nvim;
+PATH=$PATH:/home/robert/.gem/ruby/2.6.0/bin
 
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
