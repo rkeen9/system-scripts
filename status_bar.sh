@@ -49,7 +49,7 @@ battery() {
 
 brightness() {
     echo "☀"
-    xbacklight | grep -o ".*\." | tr -d "/."
+    cat /sys/class/backlight/intel_backlight/brightness
     echo "%"
     echo "$delim"
 }

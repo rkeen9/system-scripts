@@ -6,7 +6,7 @@ green=`tput setaf 2`
 reset=`tput sgr0`
 
 get_networks() {
-    iwlist wlp2s0 scan | grep ESSID | tr -d ' '
+    iw dev wlp2s0 scan | grep 'SSID' | tr -d ' '
 }
 
 echo "${green}Scanning for networks...${reset}"
