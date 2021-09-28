@@ -55,7 +55,6 @@ brightness() {
 }
 
 status() { 
-    sink=1
     # echo "$delim"
     # echo $(wifiStatus)
     echo $(volume)

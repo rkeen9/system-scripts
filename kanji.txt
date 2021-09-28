@@ -1319,7 +1319,7 @@ withdraw: 控
 stab: 突
 research: 究
 plug up: 窒
-steal (originally stealth): 窃
+stealth: 窃
 "depression (hole in the ground:  not the sad disorder)": 窪
 squeeze: 搾
 kiln: 窯
@@ -1357,7 +1357,7 @@ settlement: 納
 spinning: 紡
 distract: 紛
 introduce: 紹
-rope or thread that hold things together (originally sūtra): 経
+rope or thread that hold things together, sutra, sūtra: 経
 sire: 紳
 promise: 約
 dainty: 細
@@ -1373,7 +1373,7 @@ affinity: 縁
 netting: 網
 tense: 緊
 purple: 紫
-bind (originally truss): 縛
+truss, bind: 縛
 straw rope: 縄
 infancy: 幼
 behind: 後
@@ -1868,7 +1868,7 @@ heir: 嗣
 boat: 舟
 liner: 舶
 navigate: 航
-General (originally carrier): 般
+carrier: 般
 tray: 盤
 conveyor: 搬
 ship: 船
@@ -1904,7 +1904,7 @@ poles: 極
 tusk: 牙
 bud: 芽
 wicked: 邪
-elegent (originally gracious): 雅
+elegant (originally gracious): 雅
 interpretation: 釈
 turn: 番
 hearing: 審
@@ -2113,7 +2113,7 @@ knee: 膝
 elbow: 肘
 gland: 腺
 tumor: 腫
-dining tray: 膳
+dining tray,serving tray: 膳
 pillow: 枕
 chair: 椅
 persimmon: 柿
