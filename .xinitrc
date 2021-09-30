@@ -5,16 +5,18 @@
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
-fcitx &
-
-feh --bg-scale ~/Desktop/wall.jpg
 setxkbmap -option caps:swapescape
 export _JAVA_AWT_WM_NONREPARENTING=1
 xcompmgr &
 redshift -l 48.439:-127.357 &
+fcitx &
 unclutter -idle 1 -jitter 2 -root &
 ./scripts/status_bar.sh &
+sudo wpa_supplicant -B -i wlp2s0 -c /etc/wpa_supplicant/wpa_supplicant.conf
 # while :; do
 #     ssh-agent dwm || break
 # done
+xrandr --setprovideroutputsource modesetting NVIDIA-0
+xrandr --auto
+feh --bg-scale ~/Desktop/wall3.jpg
 exec dbus-launch dwm
