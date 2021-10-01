@@ -8,7 +8,6 @@ export XMODIFIERS=@im=fcitx
 setxkbmap -option caps:swapescape
 export _JAVA_AWT_WM_NONREPARENTING=1
 xcompmgr &
-redshift -l 48.439:-127.357 &
 fcitx &
 unclutter -idle 1 -jitter 2 -root &
 ./scripts/status_bar.sh &
@@ -18,5 +17,6 @@ sudo wpa_supplicant -B -i wlp2s0 -c /etc/wpa_supplicant/wpa_supplicant.conf
 # done
 xrandr --setprovideroutputsource modesetting NVIDIA-0
 xrandr --auto
-feh --bg-scale ~/Desktop/wall3.jpg
+feh --bg-scale ~/Desktop/wall.png
+redshift -l 48.439:-127.357 &
 exec dbus-launch dwm
