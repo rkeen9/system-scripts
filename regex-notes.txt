@@ -1,0 +1,5 @@
+Example:
+we just want the resolution from the line:
+    "1649622262.png: PNG image data, 2553 x 1055, 8-bit/color RGB, non-interlaced"
+    grep -Po "(?<=: PNG image data, )[0-9x\s]+(?=,)"
+
