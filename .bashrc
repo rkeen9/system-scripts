@@ -30,9 +30,14 @@ alias megakill='/home/robert/scripts/megakill.sh'
 alias convert-pdf='/home/robert/scripts/convert-pdf.sh'
 alias split-pdf='/home/robert/scripts/split-pdf.sh'
 alias website-sync='rsync -vrP --delete-after ~/code/robertkeen root@robertkeen.ca:/var/www/robertkeen'
+alias s='sudo systemctl'
+alias reflector='sudo reflector --latest 20 --protocol http,https --sort rate --save /etc/pacman.d/mirrorlist --verbose'
 export PATH=/home/$USER/.config/nvim/clangd_10.0.0/bin:$PATH
 
-export QSYS_ROOTDIR="/home/robert/.cache/yay/quartus-free/pkg/quartus-free-quartus/opt/intelFPGA/20.1/quartus/sopc_builder/bin"
+export QSYS_ROOTDIR="/home/robert/.cache/yay/quartus-free/pkg/quartus-free-quartus/opt/intelFPGA/21.1/quartus/sopc_builder/bin"
 . "$HOME/.cargo/env"
 export PATH=~/.cargo/bin:$PATH
 export PATH=/opt/node/bin:$PATH
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH=/home/$USER/.config/nvim/clangd_10.0.0/bin:$PATH
