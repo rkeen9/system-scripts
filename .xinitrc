@@ -8,16 +8,27 @@
 #fcitx &
 ## STARTUP SCRIPTS
 export QT_AUTO_SCREEN_SCALE_FACTOR=1.5
-feh --bg-scale ~/Desktop/wall.jpg
-setxkbmap -option caps:swapescape
 export _JAVA_AWT_WM_NONREPARENTING=1
+# Set Wallpaper:
+feh --bg-scale ~/Desktop/wall.jpg
+# Swap Capslock and escape:
+setxkbmap -option caps:swapescape
+# Enable two finger right click:
+xinput set-prop "PIXA3854:00 093A:0274 Touchpad" "libinput Click Method Enabled" 0 1 
+# Automount USBs:
 udiskie &
+# Needed for window transparency
 xcompmgr &
+# Blue light filter
 redshift -l 48.439:-127.357 &
+# Hide cursor when not in use
 unclutter -idle 1 -jitter 2 -root &
+# Status Bar
 ./scripts/status_bar.sh &
+# Load Xresources. Currently configs DPI scaling.
+xrdb -merge ~/.Xresources
+# Launch DWM
+exec dbus-launch dwm
 # while :; do
 #     ssh-agent dwm || break
 # done
-xrdb -merge ~/.Xresources
-exec dbus-launch dwm
