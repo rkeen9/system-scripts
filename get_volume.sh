@@ -1,2 +1,2 @@
-sink=$(cat /home/robert/scripts/VARIABLES | tr -d "SINK=")
+sink=$(cat /home/rob/scripts/VARIABLES | tr -d "SINK=")
 pamixer --sink $sink --get-volume

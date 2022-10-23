@@ -30,9 +30,9 @@ wifiStatus() {
 }
 
 volume() {
-    source /home/robert/scripts/VARIABLES
+    source /home/rob/scripts/VARIABLES
     echo "🔊 "
-    /home/robert/scripts/get_volume.sh    
+    /home/rob/scripts/get_volume.sh    
     echo "$delim"
 }
 
@@ -49,7 +49,7 @@ battery() {
 
 brightness() {
     echo "☀"
-    xbacklight | grep -o ".*\." | tr -d "/."
+    xbacklight -get
     echo "%"
     echo "$delim"
 }
@@ -58,8 +58,8 @@ status() {
     # echo "$delim"
     # echo $(wifiStatus)
     echo $(volume)
-    # echo $(brightness)
-    # echo $(battery)    
+    echo $(brightness)
+    echo $(battery)    
     date +"%a, %b %d, %y %r"
 }
 
